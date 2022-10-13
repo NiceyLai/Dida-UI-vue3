@@ -17,7 +17,8 @@ const router = createRouter({
       path: "/xxx",
       component: Nicey2,
     },
-  ],
+    ],
+  
 });
 
 const app = createApp(App)
