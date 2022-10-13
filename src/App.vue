@@ -1,15 +1,15 @@
 <template>
-  <div>hi</div>
-  <Nicey></Nicey>
+  <div>导航栏 | 
+  <router-link to="/">Nicey</router-link> | 
+  <router-link to="/xxx">Nicey2</router-link></div>
+  <hr/>
+  <router-view />
 </template>
 
 <script>
-import Nicey from './components/Nicey.vue'
 
 export default {
   name: 'App',
-  components: {
-    Nicey
-  }
+
 }
 </script>
