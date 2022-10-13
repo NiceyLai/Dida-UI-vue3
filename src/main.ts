@@ -3,11 +3,15 @@ import App from './App.vue'
 import './index.css'
 import {createWebHashHistory,createRouter} from 'vue-router'
 import Nicey from './components/Nicey.vue'
+
 import Nicey2 from "./components/Nicey2.vue";
 
 const history = createWebHashHistory()
+
 const router = createRouter({
+
   history: history,
+
   routes: [
     {
       path: "/",
