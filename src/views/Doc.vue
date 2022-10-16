@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-ript>
+
 <style lang="scss" scoped>
 aside {
   background: lightblue;
