@@ -1,5 +1,5 @@
 <template>
-            <div class="topnav">
+            <div class="dida-topnav">
        <div class="logo">LOGO</div>
       <ul class="menu">
         <li>菜单1</li>
@@ -26,8 +26,8 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
-.topnav {
+<style lang="scss" >
+.dida-topnav {
   background: pink;
   display: flex;
   padding: 16px;

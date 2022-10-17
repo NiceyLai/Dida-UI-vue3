@@ -18,7 +18,7 @@ export default {
     components: { Topnav }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
 .banner {
   padding: 100px 0;
   display: flex;

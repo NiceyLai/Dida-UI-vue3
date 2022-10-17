@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .layout {
   display: flex;
   flex-direction: column;
