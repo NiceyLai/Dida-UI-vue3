@@ -1,4 +1,5 @@
 <template>
+    <template v-if="visible">
    <div class="dida-dialog-overlay"></div>
 <div class="dida-dialog-wrapper">
   <div class="dida-dialog">
@@ -13,11 +14,19 @@
     </footer>
   </div>
   </div>
+    </template>
 </template>
 
 <script>
 import Button from '../lib/Button.vue'
+
 export default {
+    props: {
+        visible: {
+            type: Boolean,
+        default: false
+    }
+},
     components: { Button },
 }
 </script>
