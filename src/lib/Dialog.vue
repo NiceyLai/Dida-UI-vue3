@@ -1,22 +1,24 @@
 <template>
   <template v-if="visible">
-    <div class="dida-dialog-overlay" @click="closeOnClickOverlay"></div>
-    <div class="dida-dialog-wrapper">
-      <div class="dida-dialog">
-        <header>
- <slot name="title" />
-        <span @click="close" class="dida-dialog-close"></span>
-      </header>
-      <main>
-        <slot name="content" />
-      </main>
-      <footer>
-        <Button level="main" @click="ok">OK</Button>
-        <Button @click="cancel">Cancel</Button>
-      </footer>
-    </div>
-  </div>
-</template>
+    <Teleport to="body">
+      <div class="dida-dialog-overlay" @click="closeOnClickOverlay"></div>
+      <div class="dida-dialog-wrapper">
+        <div class="dida-dialog">
+          <header>
+            <slot name="title" />
+            <span @click="close" class="dida-dialog-close"></span>
+          </header>
+          <main>
+            <slot name="content" />
+          </main>
+          <footer>
+            <Button level="main" @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
+      </div>
+    </Teleport>
+  </template>
 </template>
 
 <script lang="ts">
@@ -25,41 +27,39 @@ export default {
   props: {
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     closeOnClickOverlay: {
       type: Boolean,
-      default: true
+      default: true,
     },
     ok: {
-      type: Function
+      type: Function,
     },
     cancel: {
-      type: Function
-    }
+      type: Function,
+    },
   },
   components: {
     Button,
   },
   setup(props, context) {
     const close = () => {
-      context.emit('update:visible', false)
-    }
+      context.emit("update:visible", false);
+    };
     const onClickOverlay = () => {
       if (props.closeOnClickOverlay) {
-        close()
+        close();
       }
-    }
+    };
     const ok = () => {
       if (props.ok?.() !== false) {
         close();
-        }
-
+      }
     };
     const cancel = () => {
-        context.emit("cancel");
-        close();
-
+      context.emit("cancel");
+      close();
     };
     return { close, onClickOverlay, ok, cancel };
   },
