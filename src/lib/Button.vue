@@ -1,37 +1,36 @@
 <template>
-    <button class="dida-button" :class="classes">
-       <slot />
-    </button>
+  <button class="dida-button" :class="classes">
+    <slot />
+  </button>
 </template>
 <script lang="ts">
-import { computed } from 'vue';
+import { computed } from "vue";
 
 export default {
-    props: {
-        theme: { 
-            type: String,
-            default: "button"
+  props: {
+    theme: {
+      type: String,
+      default: "button",
     },
     size: {
       type: String,
-          default:"normal"
-        }
+      default: "normal",
+    },
   },
   setup(props) {
-    const {theme,size} =props
+    const { theme, size } = props;
     const classes = computed(() => {
-      return { 
-        [`dida-theme-${theme}`]:theme,
-        [`dida-size-${size}`]:size,
-      }
-    })
-      return { classes}
-    }
-}
-
+      return {
+        [`dida-theme-${theme}`]: theme,
+        [`dida-size-${size}`]: size,
+      };
+    });
+    return { classes };
+  },
+};
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
@@ -65,7 +64,7 @@ $radius: 4px;
   &::-moz-focus-inner {
     border: 0;
   }
-   &.dida-theme-link {
+  &.dida-theme-link {
     border-color: transparent;
     box-shadow: none;
     color: $blue;
@@ -83,16 +82,15 @@ $radius: 4px;
       background: darken(white, 5%);
     }
   }
-  &.dida-theme-button{
-    &.dida-size-big{
-      font-size: 24px;
-      height: 48px;
-      padding: 0 16px
-    }
-    &.dida-size-small{
-      font-size: 12px;
-      height: 20px;
-      padding: 0 4px;
-    }
-}}
+  &.dida-size-big {
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px;
+  }
+  &.dida-size-small {
+    font-size: 12px;
+    height: 20px;
+    padding: 0 4px;
+  }
+}
 </style>
