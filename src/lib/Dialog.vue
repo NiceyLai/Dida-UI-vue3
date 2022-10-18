@@ -4,54 +4,54 @@
     <div class="dida-dialog-wrapper">
       <div class="dida-dialog">
         <header>
-          标题
-          <span @click="close" class="dida-dialog-close"></span>
-        </header>
-        <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
-        </main>
-        <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
-      </div>
+ <slot name="title" />
+        <span @click="close" class="dida-dialog-close"></span>
+      </header>
+      <main>
+        <slot name="content" />
+      </main>
+      <footer>
+        <Button level="main" @click="ok">OK</Button>
+        <Button @click="cancel">Cancel</Button>
+      </footer>
     </div>
-  </template>
+  </div>
+</template>
 </template>
 
-<script>
-import Button from "../lib/Button.vue";
-
+<script lang="ts">
+import Button from "./Button.vue";
 export default {
   props: {
     visible: {
       type: Boolean,
-      default: false,
+      default: false
     },
     closeOnClickOverlay: {
       type: Boolean,
-      default: true,
-        },
-        ok: {
-        type:Function,
-        },
-        cancel: {
-        type:Function,
+      default: true
+    },
+    ok: {
+      type: Function
+    },
+    cancel: {
+      type: Function
     }
   },
-  components: { Button },
+  components: {
+    Button,
+  },
   setup(props, context) {
     const close = () => {
-      context.emit("update:visible", false);
-    };
-    const closeOnClickOverlay = () => {
+      context.emit('update:visible', false)
+    }
+    const onClickOverlay = () => {
       if (props.closeOnClickOverlay) {
-        close();
+        close()
       }
-    };
-      const ok = () => {
-          if (props.ok?.apply()!==false) {
+    }
+    const ok = () => {
+      if (props.ok?.() !== false) {
         close();
         }
 
@@ -59,9 +59,9 @@ export default {
     const cancel = () => {
         context.emit("cancel");
         close();
-      
+
     };
-    return { close, closeOnClickOverlay, ok, cancel };
+    return { close, onClickOverlay, ok, cancel };
   },
 };
 </script>
