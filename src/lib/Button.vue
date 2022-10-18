@@ -141,7 +141,7 @@ $grey: grey;
     }
   }
   &.dida-theme-text {
-    &.gulu-level-main {
+    &.dida-level-main {
       color: $blue;
       &:hover,
       &:focus {
