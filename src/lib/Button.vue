@@ -1,5 +1,5 @@
 <template>
-  <button class="dida-button" :class="classes">
+  <button class="dida-button" :class="classes" :disabled="disabled">
     <slot />
   </button>
 </template>
@@ -15,13 +15,18 @@ export default {
     size: {
       type: String,
       default: "normal",
-    },  level: {
+    },
+    level: {
       type: String,
       default: "normal",
     },
+    disabled: {
+      type: Boolean,
+      default:false,
+    },
   },
   setup(props) {
-    const { theme, size ,  level} = props;
+    const { theme, size, level } = props;
     const classes = computed(() => {
       return {
         [`dida-theme-${theme}`]: theme,
@@ -41,6 +46,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey: grey;
 .dida-button {
   box-sizing: border-box;
   height: $h;
@@ -98,7 +104,7 @@ $red: red;
     height: 20px;
     padding: 0 4px;
   }
-    &.dida-theme-button {
+  &.dida-theme-button {
     &.dida-level-main {
       background: $blue;
       color: white;
@@ -143,6 +149,21 @@ $red: red;
       &:focus {
         color: darken($red, 10%);
       }
+    }
+  }
+    &.dida-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.dida-theme-link, &.dida-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
     }
   }
 }
