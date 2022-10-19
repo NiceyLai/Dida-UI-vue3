@@ -1,45 +1,53 @@
 <template>
-            <div class="dida-topnav">
-       <div class="logo">LOGO</div>
-      <ul class="menu">
-        <li>菜单1</li>
-        <li>菜单2</li>
-      </ul>
-      <span class="toggleAside" @click="toggleMenu"></span>
+  <div class="dida-topnav">
+    <div class="logo">
+      <svg class="icon">
+        <use xlink:href="#icon-dida"></use>
+      </svg>
     </div>
+    <ul class="menu">
+      <li>菜单1</li>
+      <li>菜单2</li>
+    </ul>
+    <span class="toggleAside" @click="toggleMenu"></span>
+  </div>
 </template>
 
 <script lang="ts">
-import {  inject,Ref} from "vue"
-
+import { inject, Ref } from "vue";
 
 export default {
   setup() {
-   const menuVisible = inject<Ref<boolean>>('menuVisible')
-  const toggleMenu= ()=>{
-    menuVisible.value= !menuVisible.value
-  
-  }
-  return {toggleMenu}
-  }
-}
+    const menuVisible = inject<Ref<boolean>>("menuVisible");
+    const toggleMenu = () => {
+      menuVisible.value = !menuVisible.value;
+    };
+    return { toggleMenu };
+  },
+};
 </script>
 
+<style lang="scss">
+$color: #007974;
 
-<style lang="scss" >
 .dida-topnav {
+  color: $color;
   display: flex;
   padding: 16px;
- position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 10;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    > svg {
+      width: 32px;
+      height: 32px;
+    }
   }
   > .menu {
     display: flex;
@@ -49,8 +57,8 @@ export default {
       margin: 0 1em;
     }
   }
-  .toggleAside{
-     display: inline-block;
+  .toggleAside {
+    display: inline-block;
     width: 24px;
     height: 24px;
     background: red;
@@ -60,19 +68,16 @@ export default {
     transform: translateY(-50%);
     display: none;
   }
-  @media (max-width:500px) {
-    >.menu{
-      display:none
+  @media (max-width: 500px) {
+    > .menu {
+      display: none;
     }
-    >.logo{
-      margin:0 auto;
+    > .logo {
+      margin: 0 auto;
     }
-    >.toggleAside{
-      display:inline-block;
+    > .toggleAside {
+      display: inline-block;
     }
   }
 }
-  
 </style>
-
-
