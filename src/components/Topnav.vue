@@ -28,7 +28,6 @@ export default {
 
 <style lang="scss" >
 .dida-topnav {
-  background: pink;
   display: flex;
   padding: 16px;
  position: fixed;
