@@ -6,12 +6,12 @@
       </svg>
     </router-link>
     <ul class="menu">
-  <li>
-      <router-link to="/doc">文档</router-link>
-    </li>
+      <li>
+        <router-link to="/doc">文档</router-link>
+      </li>
     </ul>
     <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
-   <use xlink:href="#icon-menu"></use>
+      <use xlink:href="#icon-menu"></use>
     </svg>
   </div>
 </template>
@@ -20,11 +20,11 @@
 import { inject, Ref } from "vue";
 
 export default {
-   props: {
+  props: {
     toggleMenuButtonVisible: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup() {
     const menuVisible = inject<Ref<boolean>>("menuVisible");
@@ -41,15 +41,19 @@ $color: #007974;
 
 .dida-topnav {
   color: $color;
+  width: 100%;
   display: flex;
   padding: 16px;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   z-index: 20;
   justify-content: center;
   align-items: center;
+  @media (max-width: 896px) {
+    position: fixed;
+    padding: 5px 0 0;
+      background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+    box-shadow: 0 0 3px rgb(0 0 0 / 25%);
+  }
   > .logo {
     max-width: 6em;
     margin-right: auto;

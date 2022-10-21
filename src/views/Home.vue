@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="homeWrap">
     <div class="topnavAndBanner">
       <Topnav />
       <div class="banner">
         <h1>点滴UI</h1>
-        <h2>一个厉害的UI框架</h2>
+        <h2>一款 认真制作 用心设计 的UI框架</h2>
         <p class="actions">
           <a href="https://github.com">GitHub</a>
           <router-link to="/doc">开始</router-link>
@@ -32,7 +32,7 @@
             <use xlink:href="#icon-light"></use>
           </svg>
           <h3>代码易读</h3>
-          <p>每个组件的源代码都极其简洁</p>
+          <p>组件源代码极其简洁</p>
         </li>
       </ul>
     </div>
@@ -49,14 +49,16 @@ export default {
 $green: #02bcb0;
 $border-radius: 4px;
 $color: #007974;
-
+.homeWrap {
+    overflow-y: auto;
+}
 .topnavAndBanner {
   background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features {
   margin: 64px auto;
-  padding: 0 16px;
+  padding: 0 30px;
   @media (min-width: 800px) {
     width: 800px;
     >ul {
@@ -88,12 +90,12 @@ $color: #007974;
       grid-template-rows: 1fr auto;
       >svg {
         grid-area: icon;
-        width: 64px;
-        height: 64px;
+        width: 60px;
+        height: 60px;
       }
       >h3 {
         grid-area: title;
-        font-size: 28px;
+        font-size: 26px;
       }
       >p {
         grid-area: text
@@ -103,13 +105,19 @@ $color: #007974;
 }
 .banner {
   color: $color;
-  padding: 100px 0;
+  padding: 66px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  >h1{
+    padding: 10px 0;
+  }
+  >h2{
+    padding: 10px 0;
+  }
   >.actions {
-    padding: 8px 0;
+    padding: 16px 0;
     a {
       margin: 0 8px;
       background: $green;
