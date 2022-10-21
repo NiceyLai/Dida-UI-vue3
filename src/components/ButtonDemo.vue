@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Button 示例</h1>
-    <Demo :component="Button1" />
+    <Demo :component="Button1Demo" />
     <Demo :component="Button2Demo" />
     <Demo :component="Button3Demo" />
     <Demo :component="Button4Demo" />
@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import Demo from "./Demo.vue";
-import {Button1} from "./Button1.demo";
+import Button1Demo from "./Button1.demo.vue";
 import Button2Demo from "./Button2.demo.vue";
 import Button3Demo from "./Button3.demo.vue";
 import Button4Demo from "./Button4.demo.vue";
@@ -22,7 +22,7 @@ export default {
   },
   setup() {
     return {
-      Button1,
+      Button1Demo,
       Button2Demo,
       Button3Demo,
       Button4Demo,
