@@ -54,9 +54,7 @@ export default {
 
 <style lang="scss">
 $aside-index: 10;
-.router-link-active {
-  background: white;
-}
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -70,7 +68,7 @@ $aside-index: 10;
     display: flex;
     flex-grow: 1;
     padding-top: 60px;
-    padding-left: 156px;
+    padding-left: 200px;
     > aside {
       flex-shrink: 0;
       background: linear-gradient(
@@ -78,7 +76,7 @@ $aside-index: 10;
         rgba(227, 255, 253, 1) 0%,
         rgba(183, 233, 230, 1) 100%
       );
-      min-width: 150px;
+      min-width: 190px;
       padding: 85px 0 16px;
       position: fixed;
       top: 0;
@@ -95,6 +93,9 @@ $aside-index: 10;
         }
         > ol {
           > li {
+            > .router-link-active {
+              background: white;
+            }
             > a {
               display: block;
               padding: 10px 32px;

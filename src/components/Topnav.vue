@@ -7,7 +7,9 @@
     </router-link>
     <ul class="menu">
       <li>
-        <router-link to="/doc">文档</router-link>
+        <router-link to="/doc">
+          <div>文档</div>
+          </router-link>
       </li>
     </ul>
     <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
@@ -50,14 +52,19 @@ $color: #007974;
   align-items: center;
   @media (max-width: 896px) {
     position: fixed;
-    padding: 5px 0 0;
-      background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+    padding: 5px 0;
+    background: linear-gradient(
+      145deg,
+      rgba(227, 255, 253, 1) 0%,
+      rgba(183, 233, 230, 1) 100%
+    );
     box-shadow: 0 0 3px rgb(0 0 0 / 25%);
   }
   > .logo {
     max-width: 6em;
     margin-right: auto;
     > svg {
+    margin: 0 1em;
       width: 32px;
       height: 32px;
     }
@@ -67,7 +74,8 @@ $color: #007974;
     white-space: nowrap;
     flex-wrap: nowrap;
     > li {
-      margin: 0 1em;
+      margin: 0 2em;
+color: rgb(0 121 116)e;
     }
   }
   .toggleAside {
