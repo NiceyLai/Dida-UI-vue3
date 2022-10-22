@@ -1,47 +1,29 @@
 <template>
-  <button class="dida-button" :class="classes" :disabled="disabled">
+  <button class="dida-button" :class="classes" :disabled="disabled" @click="$emit('click', $event)">
    <span v-if="loading" class="dida-loadingIndicator"></span>
     <slot />
   </button>
 </template>
-<script lang="ts">
+<script lang="ts" setup="props">
 import { computed } from "vue";
-
-export default {
-  props: {
-    theme: {
-      type: String,
-      default: "button",
-    },
-    size: {
-      type: String,
-      default: "normal",
-    },
-    level: {
-      type: String,
-      default: "normal",
-    },
-    disabled: {
-      type: Boolean,
-      default:false,
-    },
-     loading: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(props) {
-    const { theme, size, level } = props;
-    const classes = computed(() => {
-      return {
-        [`dida-theme-${theme}`]: theme,
-        [`dida-size-${size}`]: size,
-        [`dida-level-${level}`]: level,
-      };
-    });
-    return { classes };
-  },
-};
+const props = defineProps<{
+  theme?: 'button' | 'text' | 'link';
+  size?: 'normal' | 'big' | 'small';
+  level?: 'normal' | 'main' | 'danger';
+  disabled?: boolean;
+  loading?: boolean;
+}>();
+const { theme, size, level } = props;
+defineEmits<{
+  (e: 'click', event: MouseEvent): void
+}>()
+const classes = computed(() => {
+  return {
+    [`dida-theme-${theme}`]: theme,
+    [`dida-size-${size}`]: size,
+      [`dida-level-${level}`]: level,
+  };
+});
 </script>
 
 <style lang="scss">
