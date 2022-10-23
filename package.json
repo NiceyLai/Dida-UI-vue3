@@ -4,30 +4,34 @@
   "files": [
     "dist/lib/*"
   ],
-  "main": "dist/lib/dida.js",
-  "module": "dist/lib/dida.esm.js",
+  "main": "dist/lib/dida.umd.js",
+  "module": "dist/lib/dida.es.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build:website": "vite build",
+    "build:lib": "vite build -c vite.lib.config.ts"
   },
   "resolutions": {
     "node-sass": "npm:sass@latest"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "3.0.3",
-    "rollup-plugin-esbuild": "4.9.3",
-    "rollup-plugin-scss": "3.0.0",
-    "rollup-plugin-terser": "7.0.2",
-    "sass": "1.54.5",
-    "vite": "3.0.9",
+    "@vitejs/plugin-vue": "^3.1.2",
+    "github-markdown-css": "4.0.0",
     "marked": "1.1.1",
-    "vue": "3.2.37",
-    "vue-router": "4",
     "prismjs": "1.21.0",
-    "github-markdown-css": "4.0.0"
-  },
-  "peerDependencies": {
+    "rollup-plugin-esbuild": "^4.10.1",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.55.0",
+    "vite": "3.0.9",
     "vue": "3.2.37",
-    "github-markdown-css": "4.0.0"
+    "vue-router": "4"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/lib/gulu.es.js",
+      "require": "./dist/lib/gulu.umd.js"
+    },
+    "./dist/lib/style.css": "./dist/lib/style.css"
   }
 }

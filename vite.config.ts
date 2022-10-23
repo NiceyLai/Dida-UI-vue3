@@ -1,9 +1,12 @@
 import { md } from "./plugins/md";
 import { demo } from "./plugins/demo";
 import vue from "@vitejs/plugin-vue";
+import { defineConfig } from "vite";
 
-export default {
+export default defineConfig({
   base: "./",
-  assetsDir: "assets",
+  build: {
+    assetsDir: "assets",
+  },
   plugins: [vue(), demo(), md()],
-};
+});
