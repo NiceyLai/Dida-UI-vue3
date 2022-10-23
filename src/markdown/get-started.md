@@ -4,7 +4,7 @@
 
 然后在你的代码中写入下面的代码
 
-```javascript
+```
 import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "dida-ui"
 ```
 
@@ -14,7 +14,7 @@ import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "dida-ui"
 
 代码示例：
 
-```html
+```
 <template>
   <div>
     <Button>按钮</Button>

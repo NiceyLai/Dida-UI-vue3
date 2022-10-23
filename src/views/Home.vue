@@ -6,7 +6,7 @@
         <h1>点滴UI</h1>
         <h2>一款 认真制作 用心设计 的UI框架</h2>
         <p class="actions">
-          <a href="https://github.com">GitHub</a>
+          <a href="https://github.com/NiceyLai/Dida-UI-vue3">GitHub</a>
           <router-link to="/doc">开始</router-link>
         </p>
       </div>
