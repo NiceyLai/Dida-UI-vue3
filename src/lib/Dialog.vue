@@ -1,7 +1,7 @@
 <template>
-  <template v-if="visible">
+ <template v-if="visible">
     <Teleport to="body">
-      <div class="dida-dialog-overlay" @click="closeOnClickOverlay"></div>
+      <div class="dida-dialog-overlay" @click="onClickOverlay"></div>
       <div class="dida-dialog-wrapper">
         <div class="dida-dialog">
           <header>
@@ -21,49 +21,34 @@
   </template>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup="props, context">
 import Button from "./Button.vue";
-export default {
-  props: {
-    visible: {
-      type: Boolean,
-      default: false,
-    },
-    closeOnClickOverlay: {
-      type: Boolean,
-      default: true,
-    },
-    ok: {
-      type: Function,
-    },
-    cancel: {
-      type: Function,
-    },
-  },
-  components: {
-    Button,
-  },
-  setup(props, context) {
-    const close = () => {
-      context.emit("update:visible", false);
-    };
-    const onClickOverlay = () => {
-      if (props.closeOnClickOverlay) {
-        close();
-      }
-    };
-    const onClickOk = () => {
-      if (props.ok?.() !== false) {
-        close();
-      }
-    };
-    const onClickCancel = () => {
-      props.cancel?.()
-      close();
-    };
-    return { close, onClickOverlay, onClickOk, onClickCancel };
-  },
-};
+const props = defineProps<{
+  visible?: boolean;
+  closeOnClickOverlay?: boolean;
+  ok?: () => boolean;
+  cancel?: () => void
+}>();
+const emit = defineEmits<{
+  (e: 'update:visible', visible: boolean): void
+}>()
+const close = () => {
+  emit('update:visible', false)
+}
+const onClickOverlay = () => {
+  if (props.closeOnClickOverlay) {
+    close()
+  }
+}
+const onClickOk = () => {
+  if (props.ok?.() !== false) {
+    close()
+  }
+}
+const onClickCancel = () => {
+  props.cancel?.()
+  close()
+}
 </script>
 
 <style lang="scss">

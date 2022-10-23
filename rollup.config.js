@@ -1,4 +1,4 @@
-// 请先安装 rollup-plugin-esbuild rollup-plugin-vue rollup-plugin-scss sass rollup-plugin-terser
+// 请先安装 rollup-plugin-esbuild @vitejs/plugin-vue rollup-plugin-scss sass rollup-plugin-terser
 import esbuild from "rollup-plugin-esbuild";
 import vue from "'@vitejs/plugin-vue";
 import scss from "rollup-plugin-scss";
